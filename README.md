@@ -32,11 +32,11 @@ BPM
 global_notelength
 
 # One note per line
-A4
+A#4
 
 # Optionally, override length
 # This one will take up two beats
-A4 2
+A#4 2
 
 # Optionally, override both delay and length
 # This note would normally play for half a beat and then be delayed for another half, instead the delay will be 1.5 times the beat length.
