@@ -1,0 +1,38 @@
+105
+0.5
+
+# format: 
+# "note" [length]
+
+# delay is (bar - length) beats
+
+# allows for repeated sections, use:
+
+# start_section
+# # notes here...
+# repeat_section N
+
+# you can nest sections too!
+
+start_section
+
+start_section
+
+D#6
+C#6
+C6
+
+repeat_section 3
+
+start_section
+
+C#6
+F5
+G#5
+
+repeat_section 4
+
+repeat_section 2
+
+# Credit to: https://onlinesequencer.net/2115196
+# My edit: https://onlinesequencer.net/4070103
