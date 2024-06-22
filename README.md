@@ -16,7 +16,7 @@ Note formatting:
 ```
 note [length] [delay]
 ```
-Notes are expressed as `[A-G][#b]?\d` (ex: C#6, Bb5).
+Notes are expressed as `/[A-G][#b]?\d/` (ex: C#6, Bb5).
 
 After every note, the rest of the remaining beat will be waited through with a delay, unless one is explicitly specified. This means that a note with the length 1.75 will have a delay of 0.25 by default.
 
