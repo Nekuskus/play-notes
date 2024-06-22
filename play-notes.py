@@ -70,7 +70,7 @@ bar = 1
 notesfile = open(sys.argv[1])
 
 beatms = math.trunc((60 / float(notesfile.readline())) * 1000)
-note_beatlength = float(notesfile.readline())
+global_beatlength = float(notesfile.readline())
 
 lines = notesfile.read().splitlines()
 
@@ -101,6 +101,9 @@ for line in lines:
     if len(split) > 1:
         note.append(float(split[1]))
 
+    if len(split) > 2:
+        note.append(float(split[2]))
+
     if len(sections) > 0:
         sections[-1].append(note)
     else:
@@ -111,12 +114,15 @@ notesfile.close()
 constructed = ["beep"]
 
 for entry in notes:
+    note_beatlength = global_beatlength
     if(len(entry) > 1):
         note_beatlength = entry[1]
     
     length = note_beatlength * beatms
     
-    delay = (bar - note_beatlength) * beatms if note_beatlength < 1 else 0
+    delay = bar - (note_beatlength % 1)
+    if(len(entry) > 2):
+        delay = entry[2]
     
     note = entry[0][:-1]
     octave = int(entry[0][-1])
