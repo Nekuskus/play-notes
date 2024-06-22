@@ -120,9 +120,9 @@ for entry in notes:
     
     length = note_beatlength * beatms
     
-    delay = bar - (note_beatlength % 1)
+    delay = (bar - (note_beatlength % 1)) * beatms
     if(len(entry) > 2):
-        delay = entry[2]
+        delay = entry[2] * beatms
     
     note = entry[0][:-1]
     octave = int(entry[0][-1])
