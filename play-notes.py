@@ -3,6 +3,15 @@ import subprocess
 import sys
 import math
 
+
+filename = ''
+debug = False
+for arg in sys.argv[1:]:
+    if arg != '-v' and arg != '--verbose':
+        filename = arg
+    else:
+        debug = True
+
 # Table from: https://mixbutton.com/mixing-articles/music-note-to-frequency-chart/
 """
 C
@@ -30,6 +39,8 @@ A#/Bb
 B
 	30.87 Hz 	61.74 Hz 	123.47 Hz 	246.94 Hz 	493.88 Hz 	932.33 Hz 	1975.53 Hz 	3951.07 Hz 	7902.13 Hz
 """
+
+halftones_log = []
 
 def getNoteOrd(letter: str):
     match letter:
@@ -62,12 +73,14 @@ def getFreq(note: str, octave: int) -> float:
 
     n += octave * 12
 
+    halftones_log.append(n)
+    
     return C0 * 2 ** (n / 12)
 
 
 bar = 1
 
-notesfile = open(sys.argv[1])
+notesfile = open(filename)
 
 beatms = math.trunc((60 / float(notesfile.readline())) * 1000)
 global_beatlength = float(notesfile.readline())
@@ -134,5 +147,7 @@ for entry in notes:
 
 constructed = constructed[:-1] # remove trailing '-n'
 
-print(constructed)
+if debug:
+    print(halftones_log)
+    print(constructed)
 subprocess.run(constructed)

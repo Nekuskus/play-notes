@@ -4,7 +4,7 @@ A simple utility for playing music with the PC speaker. Makes use of a simple cu
 ## Usage
 Invoke with:
 ```
-python3 play-notes.py track.notes
+python3 play-notes.py [-v|--verbose] track.notes
 ```
 
 ## Sound format
