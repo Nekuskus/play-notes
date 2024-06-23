@@ -120,7 +120,7 @@ for entry in notes:
     
     length = note_beatlength * beatms
     
-    delay = (bar - (note_beatlength % 1)) * beatms
+    delay = (bar - (note_beatlength % 1 if note_beatlength % 1 != 0 else 1)) * beatms
     if(len(entry) > 2):
         delay = entry[2] * beatms
     

@@ -1,0 +1,31 @@
+105
+0.5
+
+# One note per line
+A#4
+
+# Optionally, override length
+# This one will take up two beats
+A#4 2
+
+# Optionally, override both delay and length
+# This note would normally play for half a beat and then be delayed for another half, instead the delay will be 1.5 times the beat length.
+A4 0.5 1.5
+
+
+# You can also repeat groups of notes!
+
+start_section
+
+A1
+A2
+A3
+
+start_section
+
+A4
+A5
+
+repeat_section 2
+
+repeat_section 3
