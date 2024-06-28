@@ -4,8 +4,9 @@ A simple utility for playing music with the PC speaker. Makes use of a simple cu
 ## Usage
 Invoke with:
 ```
-python3 play-notes.py [-v|--verbose] track.notes
+python3 play-notes.py [-v|--verbose] [-d|--dry-run] track.notes
 ```
+Verbose prints the constructed command, and a log of the calculated half-tone distances from C0. Dry run implies verbose, and does not execute the constructed command.
 
 ## Sound format
 Header contains global info for the playback:
